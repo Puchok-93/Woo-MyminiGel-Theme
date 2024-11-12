@@ -22,7 +22,10 @@
 	// }
 
 	add_action( 'wp_enqueue_scripts', function() {
+		wp_enqueue_style( 'woo-myminigel-google-font', 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap' );
+
 		wp_enqueue_style( 'woo-myminigel-swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css' );
+		wp_enqueue_style( 'woo-myminigel-main-style', get_template_directory_uri() . '/assets/css/style.css');
 		wp_enqueue_script( 'woo-myminigel-swiper-script', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), false, true);
 		wp_enqueue_script( 'woo-myminigel-app-script', get_template_directory_uri() . '/assets/js/script.js', array(), false, true);
 	} );
