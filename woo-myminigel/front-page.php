@@ -112,35 +112,4 @@
 </div>
 
 
-<!-- Product Card Template -->
-<div class="wrapper">
-
-  <div class="product-card">
-    <div class="product-labels">
-      <span class="product-labels__label">Popular</span>
-      <span class="product-labels__label">Hit</span>
-      <span class="product-labels__label">New</span>
-    </div>
-    <div class="rating"></div>
-    <a class="product-card__link" href="#">
-        <div class="product-card__img">
-            <img src="<?php echo get_template_directory_uri()?>/assets/img/product-plug.jpg'?>">
-        </div>
-    </a>
-    <div class="product-card-descr">
-      <p class="product-card-descr__category">Gel</p>
-      <h3 class="product-card-descr__title">
-        <a href="#">Red Sunrise</a></h3>
-    </div>
-    <div class="product-card-footer">
-      <div class="product-card-price">
-        <span class="product-card-price__price">6$</span>
-        <span class="prodct-card-price__old-price">12$</span>
-        <span class="product-card-price__percent">-47%</span>
-      </div>
-      <button class="product-card-buy-btn">Buy</button>
-    </div>
-  </div>
-
-</div>
 <?php get_footer(); ?>

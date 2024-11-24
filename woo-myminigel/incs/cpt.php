@@ -19,7 +19,7 @@
             'menu_icon'    => 'dashicons-format-gallery',
             'show_in_rest' => true,
             ) );
-        } 
+        }
     );
 
 ?>
