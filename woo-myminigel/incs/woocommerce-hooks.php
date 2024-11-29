@@ -21,7 +21,12 @@
     remove_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
     add_action( 'woocommerce_sale_flash', 'pancode_echo_sale_percent' );
 
-
+add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_delimiter' );
+    function wcc_change_breadcrumb_delimiter( $defaults ) {
+        // Change the breadcrumb delimeter from '/' to '>'
+        $defaults['delimiter'] = ' &mdash; ';
+        return $defaults;
+    }
     
 /**
  * Echo discount percent badge html.

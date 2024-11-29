@@ -15,12 +15,13 @@
                 <img src="<?php echo get_template_directory_uri()?>/assets/img/logo.svg'?>" alt="Myminigel Logo">
             </a>
             <div class="header-search">
-                <form class="header-search-form" action="">
+                <!-- <form class="header-search-form" action="">
                     <div class="header-search-input-block"">
                         <input class="header-search__input form-control" type="text" name="s" placeholder="Search" aria-label="Searching..." aria-describedby="button-search">
                         <button class="header-search__btn" type="submit" id="button-search"></button>
                     </div>
-                </form>
+                </form> -->
+                <?php aws_get_search_form( true ); ?>
             </div>
         </div>
         <nav class="header-navigation">
