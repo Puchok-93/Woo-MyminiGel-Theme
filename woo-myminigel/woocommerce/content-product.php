@@ -25,6 +25,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <li <?php wc_product_class( 'product-card swiper-slide', $product ); ?>>
+	<div style="display: none" class="ajax-preloader">
+		<img src="<?php echo get_template_directory_uri( '' )?>/assets/img/preloader.svg" alt="">
+	</div>
+	
 	<?php
 		/**
 		 * Hook: woocommerce_before_shop_loop_item.

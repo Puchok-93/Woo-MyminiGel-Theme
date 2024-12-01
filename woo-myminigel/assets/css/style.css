@@ -56,7 +56,7 @@ main {
     max-width: 1220px;
     padding: 0 10px;
     margin: 0 auto;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 .wrapper--no-pd {
@@ -451,7 +451,7 @@ main {
     gap: 23px;
     padding: 24px 20px;
     max-width: 360px;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 .main-slide-info__title {
@@ -915,6 +915,14 @@ main {
 
 .container-image-and-badge span {
     font-family: "Outfit", sans-serif !important;
+}
+
+.ajax-preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
 /*============================= Star Rating ============================*/
@@ -1604,6 +1612,72 @@ main {
 .review-next:hover svg,
 .review-prev:hover svg {
     fill: rgba(0, 0, 0);
+}
+
+/* Catalog */
+.catalog-page {
+    display: flex;
+    gap: 10px;
+}
+
+.catalog-sidebar {
+    width: 280px;
+    background-color:lightgreen;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.catalog-content {
+    width: 100%;
+    max-width: 910px;
+}
+
+.catalog-products {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.catalog-products .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.catalog-products .products .product-card {
+    max-width: 100%;
+}
+
+.catalog-content .woocommerce-pagination {
+    margin: 20px 0 0 0;
+}
+
+.catalog-content .page-numbers {
+    display: flex;
+    gap: 10px;
+}
+
+.catalog-content .page-numbers li {
+    outline: 1px solid #fa9a84;;
+    border-radius: 4px;
+}
+
+.catalog-content .page-numbers li a,
+.catalog-content .page-numbers li span {
+    font-family: "Outfit", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.catalog-content .page-numbers li a {
+    color: #fa9a84;
+}
+
+.catalog-content .page-numbers li span {
+    color: #000000;
 }
 
 @media(max-width: 1024px) {
