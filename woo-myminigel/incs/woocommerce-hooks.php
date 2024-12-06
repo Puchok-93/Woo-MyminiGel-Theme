@@ -21,13 +21,28 @@
     remove_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
     add_action( 'woocommerce_sale_flash', 'pancode_echo_sale_percent' );
 
-add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_delimiter' );
-    function wcc_change_breadcrumb_delimiter( $defaults ) {
-        // Change the breadcrumb delimeter from '/' to '>'
-        $defaults['delimiter'] = ' &mdash; ';
-        return $defaults;
-    }
-    
+    add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_delimiter' );
+
+    remove_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
+
+
+
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 6 );
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 50);
+remove_action( 'woocommerce_review_before', 'woocommerce_review_display_gravatar', 10 );
+add_action( 'woocommerce_review_before', 'woocommerce_review_display_gravatar', 9 );
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+
+function wcc_change_breadcrumb_delimiter( $defaults ) {
+    // Change the breadcrumb delimeter from '/' to '>'
+    $defaults['delimiter'] = ' &mdash; ';
+    return $defaults;
+}
+
+
 /**
  * Echo discount percent badge html.
  *

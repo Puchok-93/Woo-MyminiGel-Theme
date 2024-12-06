@@ -104,11 +104,111 @@ function initReviewSlider() {
   });
 }
 
+function initMainProductSlider() {
+  const gallery = document.querySelector('#main-product-slider');
+
+  if(!gallery) {
+    return
+  }
+
+  // var swiper = new Swiper(gallery, {
+  //   navigation: {
+  //     nextEl: ".swiper-button-next",
+  //     prevEl: ".swiper-button-prev",
+  //   },
+  //   loop: true,
+  //   pagination: {
+  //     el: ".swiper-pagination",
+  //   },
+  // });
+
+  var smallGallery = new Swiper(".product-thumb-slider", {
+    spaceBetween: 10,
+    direction: 'vertical',
+    slidesPerView: 'auto',
+    freeMode: true,
+    watchSlidesProgress: true,
+  });
+
+  var swiper2 = new Swiper(".product-main-slider", {
+    spaceBetween: 10,
+    thumbs: {
+      swiper: smallGallery,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+}
+
+jQuery(document).ready(function($){
+  $('body').on('adding_to_cart', function (e, btn, data) {
+    btn.closest('.product-card').find('.ajax-preloader').fadeIn();
+  });
+  $('body').on('added_to_cart', function (e, response_fragments, response_cart_hash, btn) {
+    btn.closest('.product-card').find('.ajax-preloader').fadeOut();
+  });
+});
+
+function initTextareaLengh() {
+  const comment = document.querySelector('#comment');
+  
+  if(!comment) {
+    return
+  }
+
+  const currentLength = document.querySelector('.count');
+  comment.addEventListener('input', () => {
+    let inputLength = comment.value.length;
+    currentLength.innerHTML = inputLength;
+  })
+}
+
+function initHideInputLabels() {
+  const commentForm = document.querySelector('.comment-form');
+
+  if(!commentForm) {
+    return
+  }
+
+  const authorInput = commentForm.querySelector('.comment-form-author input');
+  const authorLabel = commentForm.querySelector('.comment-form-author .form-label');
+  const emailInput = commentForm.querySelector('.comment-form-email input');
+  const emailLabel = commentForm.querySelector('.comment-form-email .form-label');
+
+  authorInput.addEventListener('input', () => {
+    if(authorInput.value.length > 0) {
+      authorLabel.style.opacity = 0;
+    } else {
+      authorLabel.style.opacity = 1;
+    }
+  })
+
+  emailInput.addEventListener('input', () => {
+    if(emailInput.value.length > 0) {
+      emailLabel.style.opacity = 0;
+    } else {
+      emailLabel.style.opacity = 1;
+    }
+  })
+}
+
+
 function init() {
   initOurProducts();
   initFaq();
   initCustomerPhotoSlider();
   initReviewSlider();
+  initMainProductSlider();
+  initTextareaLengh();
+  initHideInputLabels()
+  Fancybox.bind("[data-fancybox]", {
+      // Your custom options
+  });
 }
 
   window.addEventListener('DOMContentLoaded', init);

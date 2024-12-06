@@ -5,13 +5,21 @@
 <div class="box">
     <div class="catalog-page">
         <div class="catalog-sidebar">
-            <?php do_action( 'woocommerce_sidebar' )  ?>
+                <div class="catalog-sidebar-heading">
+                    <h2 class="catalog-sidebar-heading__title">Catalog</h2>
+                    <a class="catalog-sidebar-heading__link" href="<?php echo home_url( '/' )?>">
+                        <svg width="16" height="18">
+                            <use xlink:href="<?php echo get_template_directory_uri()?>/assets/img/sprite.svg#icon-home"></use>
+                        </svg>
+                    </a>
+                </div>
+                <?php do_action( 'woocommerce_sidebar' )  ?>
         </div>
 
         <div class="catalog-content">
             <h1 style="display: none"><?php woocommerce_page_title(); ?></h1>
 
-            <div style="display: flex; align-items: center;justify-content: space-between">
+            <div style="display: flex; align-items: center;">
                 <?php do_action( 'woocommerce_before_shop_loop' ); ?>
             </div>
 
