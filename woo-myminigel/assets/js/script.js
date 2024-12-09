@@ -154,6 +154,28 @@ jQuery(document).ready(function($){
   });
 });
 
+jQuery(document).ready(function($){
+  $('.page-cart').on('click', '.quantity button', function () {
+    let btn = $(this);
+    let groupedProduct = btn.closest('.woocommerce-grouped-product-list-item__quantity').length;
+    let inputQty = btn.parent().find('.qty');
+    let prevValue = +(inputQty.val());
+    let newValue = groupedProduct ? 0 : 1;
+    if (btn.hasClass('btn-plus')) {
+        newValue = prevValue + 1;
+    } else {
+        if (!groupedProduct && prevValue > 1) {
+            newValue = prevValue - 1;
+        } else if (groupedProduct && prevValue > 0) {
+            newValue = prevValue - 1;
+        }
+    }
+    inputQty.val(newValue);
+    $('.update-cart').prop('disabled', false);
+  });
+});
+
+
 function initTextareaLengh() {
   const comment = document.querySelector('#comment');
   
@@ -209,6 +231,10 @@ function init() {
   Fancybox.bind("[data-fancybox]", {
       // Your custom options
   });
+  
 }
 
   window.addEventListener('DOMContentLoaded', init);
+  window.onunload = function(){
+    sessionStorage.clear()
+}

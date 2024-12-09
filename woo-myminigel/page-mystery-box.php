@@ -14,6 +14,8 @@ Template Name: Mystery Box
                 <p class="mystery-box-info__subtitle">Get exclusive access to new colors...</p>
             </div>
         </div>
+        <?php echo do_shortcode( '[add_to_cart id="77" sku=""]' ); ?>
+
         <div class="about-mystery-box">
             <div class="about-mystery-box-info">
                 <div class="about-mystery-box-description">
