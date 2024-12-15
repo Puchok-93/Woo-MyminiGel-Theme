@@ -99,7 +99,7 @@ do_action( 'woocommerce_before_single_product' );
 		?>
 	</div>
 
-	<div class="product-aside summary entry-summary" style="outline: 1px solid red">
+	<div class="product-aside summary entry-summary">
 		<?php
 		/**
 		 * Hook: woocommerce_single_product_summary.

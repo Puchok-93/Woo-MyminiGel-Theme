@@ -36,6 +36,12 @@ remove_action( 'woocommerce_review_before', 'woocommerce_review_display_gravatar
 add_action( 'woocommerce_review_before', 'woocommerce_review_display_gravatar', 9 );
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
+add_filter( 'woocommerce_add_to_cart_fragments', function ( $fragments ) {
+	$fragments['span.cart-badge'] = '<span class="header-cart-value cart-badge">' . count( WC()->cart->get_cart() ) . '</span>';
+	return $fragments;
+} );
+
+
 function wcc_change_breadcrumb_delimiter( $defaults ) {
     // Change the breadcrumb delimeter from '/' to '>'
     $defaults['delimiter'] = ' &mdash; ';

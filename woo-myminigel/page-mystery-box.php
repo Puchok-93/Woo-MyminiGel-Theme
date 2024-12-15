@@ -14,7 +14,6 @@ Template Name: Mystery Box
                 <p class="mystery-box-info__subtitle">Get exclusive access to new colors...</p>
             </div>
         </div>
-        <?php echo do_shortcode( '[add_to_cart id="77" sku=""]' ); ?>
 
         <div class="about-mystery-box">
             <div class="about-mystery-box-info">
@@ -71,6 +70,73 @@ Template Name: Mystery Box
             <div class="subscription-heading">
                 <h2 class="subscription-heading__title">Subscription Plans</h2>
                 <p class="subscription-heading__subtitle">Choose the best plan for you</p>
+            </div>
+            <div class="subscription-content">
+                <ul class="individual-plan-list">
+                    <li class="individual-plan">
+                        <div class="individual-plan__img">
+                            <img src="<?php echo get_template_directory_uri()?>/assets/img/individual-plan-plug.jpg" alt="">
+                        </div>
+                        <p class="individual-plan__name">Basic</p>
+                        <div class="individual-plan-price">
+                            <div class="individual-plan-price__price"> 
+                                <?php echo do_shortcode( '[add_to_cart id="77" sku=""]' ); ?>
+                            </div>
+                            <p class="individual-plan-price__label">per mounth</p>
+                        </div>
+                        <small>Individuals</small>
+                        <div class="individual-plan-subscribe"> 
+                            <?php echo do_shortcode( '[add_to_cart id="77" sku=""]' ); ?>
+                        </div>
+                        <ul class="individual-plan-advantages">
+                            <li class="individual-plan-advantages__advantage">5 exclusive colors every month</li>
+                            <li class="individual-plan-advantages__advantage">Monthly delivery</li>
+                            <li class="individual-plan-advantages__advantage">Cancel anytime</li>
+                        </ul>
+                    </li>
+                    <li class="individual-plan">
+                        <div class="individual-plan__img">
+                            <img src="<?php echo get_template_directory_uri()?>/assets/img/individual-plan-plug.jpg" alt="">
+                        </div>
+                        <p class="individual-plan__name">Premium</p>
+                        <div class="individual-plan-price">
+                            <div class="individual-plan-price__price"> 
+                                <?php echo do_shortcode( '[add_to_cart id="77" sku=""]' ); ?>
+                            </div>
+                            <p class="individual-plan-price__label">per mounth</p>
+                        </div>
+                        <small>Individuals</small>
+                        <div class="individual-plan-subscribe"> 
+                            <?php echo do_shortcode( '[add_to_cart id="77" sku=""]' ); ?>
+                        </div>
+                        <ul class="individual-plan-advantages">
+                            <li class="individual-plan-advantages__advantage">7 exclusive colors every month</li>
+                            <li class="individual-plan-advantages__advantage">Monthly delivery</li>
+                            <li class="individual-plan-advantages__advantage">Cancel anytime</li>
+                        </ul>
+                    </li>
+                    <li class="individual-plan">
+                        <div class="individual-plan__img">
+                            <img src="<?php echo get_template_directory_uri()?>/assets/img/individual-plan-plug.jpg" alt="">
+                        </div>
+                        <p class="individual-plan__name">Pro</p>
+                        <div class="individual-plan-price">
+                            <div class="individual-plan-price__price"> 
+                                <?php echo do_shortcode( '[add_to_cart id="77" sku=""]' ); ?>
+                            </div>
+                            <p class="individual-plan-price__label">per mounth</p>
+                        </div>
+                        <small>Individuals</small>
+                        <div class="individual-plan-subscribe"> 
+                            <?php echo do_shortcode( '[add_to_cart id="77" sku=""]' ); ?>
+                        </div>
+                        <ul class="individual-plan-advantages">
+                            <li class="individual-plan-advantages__advantage">9 exclusive colors every month</li>
+                            <li class="individual-plan-advantages__advantage">Monthly delivery</li>
+                            <li class="individual-plan-advantages__advantage">Cancel anytime</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -218,6 +284,63 @@ Template Name: Mystery Box
             </div>
         </div>
 
+    </div>
+    <div class="overlay">
+        <div class="popup">
+            <div class="popup-heading">
+                <h2 class="popup-heading__title">Feedback form</h2>
+                <button class="popup-heading__close-btn" type="button">
+                    <svg class="popup-content-heading__btn-icon" width="22" height="22">
+                    <use xlink:href="<?php echo get_template_directory_uri()?>/assets/img/sprite.svg#icon-cross"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="popup-content">
+                <div class="feedback-form">
+                    <div class="popup-content-heading">
+                        <h3 class="popup-content-heading__title">Contact data</h3>
+                        <button class="popup-content-heading__btn show-how-work" type="button">
+                        <span class="popup-content-heading__btn-text">How does it work ?</span>                     
+                            <svg class="popup-content-heading__btn-icon" width="7" height="12">
+                                <use xlink:href="<?php echo get_template_directory_uri()?>/assets/img/sprite.svg#icon-arrow-btn"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="popup-form">
+                        <?php echo do_shortcode( '[contact-form-7 id="31e0cdd" title="Контактная форма 1"]' ); ?>
+                        <span class="textarea-legth"><span class="count">0</span> / 200 </span>
+                        <small class="popup-form__small">Fields marked with an asterisk are mandatory.</small>
+                    </div>            
+                </div>
+
+                <div style="display: none"  class="how-work">
+                    <div class="popup-content-heading">
+                        <h2 class="popup-content-heading__title">How does it work ?</h2>
+                        <button class="popup-content-heading__btn show-contact-data" type="button">
+                        <span class="popup-content-heading__btn-text">Contact data</span>                     
+                            <svg class="popup-content-heading__btn-icon" width="7" height="12">
+                                <use xlink:href="<?php echo get_template_directory_uri()?>/assets/img/sprite.svg#icon-arrow-btn"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <ul class="how-work-list">
+                        <li class="how-work-list-item">
+                        <p class="how-work-list-item__title">Filling out the form</p>
+                        <p class="how-work-list-item__subtitle">Enter your name, phone number, and email. If necessary, leave a comment</p>
+                        </li>
+                        <li class="how-work-list-item">
+                        <p class="how-work-list-item__title">Submitting the application</p>
+                        <p class="how-work-list-item__subtitle">Click 'Send'. The application will be sent to the contact center manager</p>
+                        </li>
+                        <li class="how-work-list-item">
+                        <p class="how-work-list-item__title">Callback</p>
+                        <p class="how-work-list-item__subtitle">A manager will contact you within a few minutes to confirm delivery and payment details</p>
+                        </li>
+                    </ul>
+                    <button class="btn how-work__continue" type="button">Continue</button>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <?php get_footer(); ?>

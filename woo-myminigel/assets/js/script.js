@@ -175,7 +175,6 @@ jQuery(document).ready(function($){
   });
 });
 
-
 function initTextareaLengh() {
   const comment = document.querySelector('#comment');
   
@@ -186,6 +185,21 @@ function initTextareaLengh() {
   const currentLength = document.querySelector('.count');
   comment.addEventListener('input', () => {
     let inputLength = comment.value.length;
+    currentLength.innerHTML = inputLength;
+  })
+}
+
+function initPopupTextareaLengh() {
+  const popupForm = document.querySelector('.popup-form');
+  
+  if(!popupForm) {
+    return
+  }
+
+  const popupTextarea = popupForm.querySelector('textarea');
+  const currentLength = popupForm.querySelector('.count');
+  popupTextarea.addEventListener('input', () => {
+    let inputLength = popupTextarea.value.length;
     currentLength.innerHTML = inputLength;
   })
 }
@@ -219,6 +233,111 @@ function initHideInputLabels() {
   })
 }
 
+function changeBtnText() {
+  const individualPlans = document.querySelector('.individual-plan-list');
+  
+  if(!individualPlans) {
+    return
+  }
+
+  const individualPlansSubscribe = document.querySelectorAll('.individual-plan-subscribe');
+  individualPlansSubscribe.forEach(elem => {
+    const addToCartBtn = elem.querySelector('.add_to_cart_button');
+    addToCartBtn.textContent = 'Subscribe';
+  })
+
+}
+
+function activeRegisterBtn() {
+  const registerBtn = document.querySelector('.my-accounts-form__submit-register');
+  
+  if(!registerBtn) {
+    return
+  }
+
+  const personalDataInput = document.querySelector('#personal-data');
+  personalDataInput.addEventListener('change', (e) => {
+    const target = e.target;
+    if(target.checked) {
+      registerBtn.removeAttribute('disabled')
+    } else {
+      registerBtn.setAttribute('disabled', 'disabled')
+    }
+  })
+}
+
+function initMobSeaercState() {
+  const search = document.querySelector('.header-search');
+  const searchInput =  search.querySelector('.aws-search-field');
+  const searchBtn = document.querySelector('.header-controls__search-btn');
+
+  searchBtn.addEventListener('click', (e => {
+    const target = e.target.closest('.header-controls__search-btn');
+    if(target) {
+      search.style.display = 'block';
+      searchInput.focus();
+    }
+  }))
+
+  searchInput.onblur = function() {
+    search.style.display = 'none'
+  }
+}
+
+function initPopup() {
+  const overlay = document.querySelector('.overlay');
+
+  if(!overlay) {
+    return
+  }
+
+  const showHowWorkBtn = overlay.querySelector('.show-how-work');
+  const showContactDataBtn = overlay.querySelector('.show-contact-data');
+  const howWorkBlock = overlay.querySelector('.how-work');
+  const contactBlock = overlay.querySelector('.feedback-form');
+  const popupCloseBtn = overlay.querySelector('.popup-heading__close-btn');
+  const showPopupBtn = document.querySelector('.faq-ask-question-btn');
+  const continueBtn = overlay.querySelector('.how-work__continue');
+
+  showPopupBtn.addEventListener('click', (e) => {
+    overlay.classList.add('js-active')
+  })
+
+  popupCloseBtn.addEventListener('click', (e) => {
+    const target = e.target.closest('.popup-heading__close-btn');
+    if(target) {
+      overlay.classList.remove('js-active');
+    }
+  })
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove('js-active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Escape' && overlay.classList.contains('js-active')) {
+        overlay.classList.remove('js-active');
+      }
+  });
+});
+
+showHowWorkBtn.addEventListener('click', () => {
+  howWorkBlock.style.display = 'flex';
+  contactBlock.style.display = 'none'
+});
+
+showContactDataBtn.addEventListener('click', () => {
+  howWorkBlock.style.display = 'none';
+  contactBlock.style.display = 'block';
+});
+
+continueBtn.addEventListener('click', () => {
+  howWorkBlock.style.display = 'none';
+  contactBlock.style.display = 'block';
+});
+
+}
 
 function init() {
   initOurProducts();
@@ -227,14 +346,22 @@ function init() {
   initReviewSlider();
   initMainProductSlider();
   initTextareaLengh();
-  initHideInputLabels()
+  initHideInputLabels();
+  changeBtnText();
+  activeRegisterBtn();
+  initPopup();
+  initPopupTextareaLengh();
   Fancybox.bind("[data-fancybox]", {
       // Your custom options
   });
+
+  if(window.innerWidth < 768) {
+    initMobSeaercState();
+  }
   
 }
 
   window.addEventListener('DOMContentLoaded', init);
-  window.onunload = function(){
-    sessionStorage.clear()
-}
+//   window.onunload = function(){
+//     sessionStorage.clear()
+// }
